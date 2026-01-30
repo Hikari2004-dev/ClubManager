@@ -67,21 +67,21 @@
                                         Họ và tên <span class="text-danger">*</span>
                                     </label>
                                     <input type="text" class="form-control" id="fullName" name="fullName" 
-                                           value="${fullName}" required placeholder="Nguyễn Văn A">
+                                           value="${fullName}" required placeholder="">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="username" class="form-label">
                                         Tên đăng nhập <span class="text-danger">*</span>
                                     </label>
                                     <input type="text" class="form-control" id="username" name="username" 
-                                           value="${username}" required placeholder="nguyenvana">
+                                           value="${username}" required placeholder="">
                                 </div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" 
-                                       value="${email}" placeholder="email@example.com">
+                                       value="${email}" placeholder="">
                             </div>
                             
                             <div class="row">
@@ -90,14 +90,14 @@
                                         Mật khẩu <span class="text-danger">*</span>
                                     </label>
                                     <input type="password" class="form-control" id="password" name="password" 
-                                           required minlength="6" placeholder="Ít nhất 6 ký tự">
+                                           required minlength="6" placeholder="">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="confirmPassword" class="form-label">
                                         Xác nhận mật khẩu <span class="text-danger">*</span>
                                     </label>
                                     <input type="password" class="form-control" id="confirmPassword" 
-                                           name="confirmPassword" required placeholder="Nhập lại mật khẩu">
+                                           name="confirmPassword" required placeholder="">
                                 </div>
                             </div>
                             
@@ -105,19 +105,19 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="phone" class="form-label">Số điện thoại</label>
                                     <input type="tel" class="form-control" id="phone" name="phone" 
-                                           value="${phone}" placeholder="0123456789">
+                                           value="${phone}" placeholder="">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="studentCode" class="form-label">Mã sinh viên</label>
+                                    <label for="studentCode" class="form-label">Mã sinh viên <small class="text-muted">(Tùy chọn)</small></label>
                                     <input type="text" class="form-control" id="studentCode" name="studentCode" 
-                                           value="${studentCode}" placeholder="SV001">
+                                           value="${studentCode}" placeholder="">
                                 </div>
                             </div>
                             
                             <div class="mb-4">
-                                <label for="className" class="form-label">Lớp</label>
+                                <label for="className" class="form-label">Lớp <small class="text-muted">(Tùy chọn)</small></label>
                                 <input type="text" class="form-control" id="className" name="className" 
-                                       value="${className}" placeholder="CNTT-K20A">
+                                       value="${className}" placeholder="">
                             </div>
                             
                             <button type="submit" class="btn btn-register btn-primary btn-lg w-100 mb-3">

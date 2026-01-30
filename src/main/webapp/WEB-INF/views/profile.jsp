@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <jsp:include page="common/header.jsp">
     <jsp:param name="title" value="Hồ sơ của tôi"/>
@@ -22,7 +23,12 @@
                         <div class="avatar-lg bg-primary bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
                              style="width: 120px; height: 120px;">
                             <span class="text-primary display-4 fw-bold">
-                                ${sessionScope.currentUser.fullName.substring(0, 1).toUpperCase()}
+                                <c:choose>
+                                    <c:when test="${not empty sessionScope.currentUser.fullName}">
+                                        ${sessionScope.currentUser.fullName.substring(0, 1).toUpperCase()}
+                                    </c:when>
+                                    <c:otherwise>?</c:otherwise>
+                                </c:choose>
                             </span>
                         </div>
                         
@@ -43,7 +49,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-2">
                             <span class="text-muted">Câu lạc bộ tham gia:</span>
-                            <strong>${memberships.size()}</strong>
+                            <strong>${fn:length(memberships)}</strong>
                         </div>
                         <div class="d-flex justify-content-between">
                             <span class="text-muted">Ngày tham gia:</span>
@@ -140,7 +146,7 @@
                     <div class="card-header">
                         <h5 class="mb-0">
                             <i class="bi bi-people me-2"></i>Câu lạc bộ của tôi
-                            <span class="badge bg-primary">${memberships.size()}</span>
+                            <span class="badge bg-primary">${fn:length(memberships)}</span>
                         </h5>
                     </div>
                     <div class="card-body p-0">
@@ -167,10 +173,10 @@
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <span class="badge bg-${membership.role == 'president' ? 'danger' : 
-                                                                              membership.role == 'vice_president' ? 'warning' : 
-                                                                              membership.role == 'secretary' ? 'info' : 'secondary'}">
-                                                            ${membership.roleDisplayName}
+                                                        <span class="badge bg-${membership.clubRole == 'president' ? 'danger' : 
+                                                                              membership.clubRole == 'vice_president' ? 'warning' : 
+                                                                              membership.clubRole == 'secretary' ? 'info' : 'secondary'}">
+                                                            ${membership.clubRoleDisplayName}
                                                         </span>
                                                     </td>
                                                     <td>
@@ -180,7 +186,7 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <small>${membership.joinedAt.dayOfMonth}/${membership.joinedAt.monthValue}/${membership.joinedAt.year}</small>
+                                                        <small><fmt:formatDate value="${membership.requestedAt}" pattern="dd/MM/yyyy"/></small>
                                                     </td>
                                                     <td>
                                                         <a href="${pageContext.request.contextPath}/clubs/${membership.clubId}" 

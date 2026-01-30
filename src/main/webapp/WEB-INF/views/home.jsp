@@ -7,31 +7,32 @@
 
 <main class="main-content">
     <!-- Hero Section -->
-    <section class="bg-primary text-white py-5">
+    <section class="hero-section text-white d-flex align-items-center" style="padding: 80px 0; min-height: 500px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${pageContext.request.contextPath}/images/hero-bg.jpg'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 class="display-4 fw-bold mb-3">Quản lý Câu lạc bộ</h1>
                     <p class="lead mb-4">
                         Nền tảng quản lý câu lạc bộ hiện đại, giúp bạn dễ dàng tổ chức, 
                         điều hành và phát triển các hoạt động câu lạc bộ.
                     </p>
-                    <c:if test="${empty sessionScope.currentUser}">
-                        <a href="${pageContext.request.contextPath}/register" class="btn btn-light btn-lg me-2">
-                            <i class="bi bi-person-plus me-2"></i>Đăng ký ngay
-                        </a>
-                        <a href="${pageContext.request.contextPath}/login" class="btn btn-outline-light btn-lg">
-                            Đăng nhập
-                        </a>
-                    </c:if>
-                    <c:if test="${not empty sessionScope.currentUser}">
-                        <a href="${pageContext.request.contextPath}/dashboard" class="btn btn-light btn-lg">
-                            <i class="bi bi-speedometer2 me-2"></i>Vào Dashboard
-                        </a>
-                    </c:if>
+                    <div>
+                        <c:if test="${empty sessionScope.currentUser}">
+                            <a href="${pageContext.request.contextPath}/register" class="btn btn-light btn-lg me-2">
+                                <i class="bi bi-person-plus me-2"></i>Đăng ký ngay
+                            </a>
+                            <a href="${pageContext.request.contextPath}/login" class="btn btn-light btn-lg me-2">
+                                Đăng nhập
+                            </a>
+                        </c:if>
+                        <c:if test="${not empty sessionScope.currentUser}">
+                            <a href="${pageContext.request.contextPath}/dashboard" class="btn btn-light btn-lg">
+                                <i class="bi bi-speedometer2 me-2"></i>Vào Dashboard
+                            </a>
+                        </c:if>
+                    </div>
                 </div>
-                <div class="col-lg-6 text-center d-none d-lg-block">
-                    <i class="bi bi-people-fill" style="font-size: 15rem; opacity: 0.3;"></i>
+                <div class="col-lg-6">
                 </div>
             </div>
         </div>
